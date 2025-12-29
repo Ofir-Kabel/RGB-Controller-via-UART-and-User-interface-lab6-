@@ -121,11 +121,23 @@ module top_disp (
       .blue(blue)
   );
 
+  genvar y;
+
+  generate
+    for (y = 0; y < 2; y = y + 1) begin : GREEN_BLUE_SCALING_GENERATE_BLOCK
+      scaling_factor scaling_factor_inst (
+        .clk(clk),
+        .rst_n(rst_n),
+        .blue_nor_green(y),
+        .scale_factor_in((y==1)? blue : green),
+        .scale_factor_out((y==1)? color_vec_pwm[2] : color_vec_pwm[1])
+      );
+    end
+  endgenerate
+
   genvar j;
 
     assign color_vec_pwm[0] = red;
-    assign color_vec_pwm[1] = green;
-    assign color_vec_pwm[2] = blue;
 
   generate
     for (j = 0; j < 3; j = j + 1) begin : LED_PWM_GENERATE_BLOCK
