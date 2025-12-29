@@ -1,0 +1,486 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Dec 29 17:59:07 2025
+# Process ID: 25812
+# Current directory: C:/VerilogRTLCourse/lab6/scripts
+# Command line: vivado.exe -mode batch -notrace -source C:\VerilogRTLCourse\lab6\scripts\full_ff_analysis.tcl -tclargs C:\VivadoProjects\Projects\VerilogRTLCourse\lab6\lab6.xpr
+# Log file: C:/VerilogRTLCourse/lab6/scripts/vivado.log
+# Journal file: C:/VerilogRTLCourse/lab6/scripts\vivado.jou
+# Running On: OYK_LP, OS: Windows, CPU Frequency: 3187 MHz, CPU Physical cores: 12, Host memory: 16783 MB
+#-----------------------------------------------------------
+source {C:\VerilogRTLCourse\lab6\scripts\full_ff_analysis.tcl} -notrace
+
+========================================================
+ TCL WORKER: Processing Project
+========================================================
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 450.945 ; gain = 118.523
+INFO: Opening RTL Design (Elaboration)...
+Design is defaulting to project part: xc7a100tcsg324-1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Vitis/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1268.242 ; gain = 421.027
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_disp' [C:/VerilogRTLCourse/lab6/design/rtl/top_disp.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'load_reg' [C:/VerilogRTLCourse/lab6/design/rtl/load_reg.sv:3]
+	Parameter DEBOUNCE_CYCLE bound to: 100 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'load_reg' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/load_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pwm' [C:/VerilogRTLCourse/lab6/design/rtl/pwm.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'pwm' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/pwm.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'disp_reg' [C:/VerilogRTLCourse/lab6/design/rtl/disp_reg.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'disp_reg' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/disp_reg.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'wrap_display' [C:/VerilogRTLCourse/lab6/design/rtl/wrap_display.sv:3]
+	Parameter CLK_OUT_FREQ bound to: 2000 - type: integer 
+	Parameter MAX_DIGITS_DISP bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'clk_div' [C:/VerilogRTLCourse/lab6/design/rtl/clk_div.sv:3]
+	Parameter CLK_OUT_FREQ bound to: 2000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clk_div' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/clk_div.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'shift_reg' [C:/VerilogRTLCourse/lab6/design/rtl/shift_reg.sv:3]
+	Parameter MAX_DIGITS_DISP bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_reg' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/shift_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'disp_decoder' [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:3]
+	Parameter MAX_DIGITS_DISP bound to: 8 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:20]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:70]
+INFO: [Synth 8-226] default block is never used [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:70]
+INFO: [Synth 8-6155] done synthesizing module 'disp_decoder' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'wrap_display' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/wrap_display.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'wrap_rx_mac_parser' [C:/VerilogRTLCourse/lab6/design/rtl/wrap_rx_mac_parser.sv:5]
+	Parameter BR bound to: 57600 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Rx' [C:/VerilogRTLCourse/lab6/design/rtl/Rx.sv:5]
+	Parameter BR bound to: 57600 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/VerilogRTLCourse/lab6/design/rtl/Rx.sv:187]
+INFO: [Synth 8-6155] done synthesizing module 'Rx' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/Rx.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'mac_fsm' [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:5]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:59]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:135]
+INFO: [Synth 8-6155] done synthesizing module 'mac_fsm' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'frame_parser' [C:/VerilogRTLCourse/lab6/design/rtl/frame_parser.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'frame_parser' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/frame_parser.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'wrap_rx_mac_parser' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/wrap_rx_mac_parser.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'display_selection' [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:6]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:52]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:79]
+INFO: [Synth 8-6155] done synthesizing module 'display_selection' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_disp' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/top_disp.sv:5]
+WARNING: [Synth 8-3917] design top_disp has port LED_TOGGLE driven by constant 1
+WARNING: [Synth 8-3917] design top_disp has port TX_LINE driven by constant 1
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1350.715 ; gain = 503.500
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1350.715 ; gain = 503.500
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1350.715 ; gain = 503.500
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1350.715 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-141] Inserted 2 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]
+Finished Parsing XDC File [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1455.672 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_rtl_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1455.672 ; gain = 1004.727
+✅ Elaboration list exported.
+INFO: Resetting and launching Synthesis...
+INFO: [Project 1-1161] Replacing file C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.srcs/utils_1/imports/synth_1/top_disp.dcp with file C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.runs/synth_1/top_disp.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.runs/synth_1
+
+[Mon Dec 29 17:59:34 2025] Launched synth_1...
+Run output will be captured here: C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.runs/synth_1/runme.log
+[Mon Dec 29 17:59:34 2025] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log top_disp.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_disp.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source top_disp.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 428.551 ; gain = 95.754
+Command: read_checkpoint -auto_incremental -incremental C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.srcs/utils_1/imports/synth_1/top_disp.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.srcs/utils_1/imports/synth_1/top_disp.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top_disp -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19412
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Vitis/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1255.832 ; gain = 410.418
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top_disp' [C:/VerilogRTLCourse/lab6/design/rtl/top_disp.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'load_reg' [C:/VerilogRTLCourse/lab6/design/rtl/load_reg.sv:3]
+	Parameter DEBOUNCE_CYCLE bound to: 100 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'load_reg' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/load_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pwm' [C:/VerilogRTLCourse/lab6/design/rtl/pwm.sv:7]
+INFO: [Synth 8-6155] done synthesizing module 'pwm' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/pwm.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'disp_reg' [C:/VerilogRTLCourse/lab6/design/rtl/disp_reg.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'disp_reg' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/disp_reg.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'wrap_display' [C:/VerilogRTLCourse/lab6/design/rtl/wrap_display.sv:3]
+	Parameter CLK_OUT_FREQ bound to: 2000 - type: integer 
+	Parameter MAX_DIGITS_DISP bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'clk_div' [C:/VerilogRTLCourse/lab6/design/rtl/clk_div.sv:3]
+	Parameter CLK_OUT_FREQ bound to: 2000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clk_div' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/clk_div.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'shift_reg' [C:/VerilogRTLCourse/lab6/design/rtl/shift_reg.sv:3]
+	Parameter MAX_DIGITS_DISP bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_reg' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/shift_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'disp_decoder' [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:3]
+	Parameter MAX_DIGITS_DISP bound to: 8 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:20]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:70]
+INFO: [Synth 8-226] default block is never used [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:70]
+INFO: [Synth 8-6155] done synthesizing module 'disp_decoder' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/disp_decoder.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'wrap_display' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/wrap_display.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'wrap_rx_mac_parser' [C:/VerilogRTLCourse/lab6/design/rtl/wrap_rx_mac_parser.sv:5]
+	Parameter BR bound to: 57600 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Rx' [C:/VerilogRTLCourse/lab6/design/rtl/Rx.sv:5]
+	Parameter BR bound to: 57600 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/VerilogRTLCourse/lab6/design/rtl/Rx.sv:187]
+INFO: [Synth 8-6155] done synthesizing module 'Rx' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/Rx.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'mac_fsm' [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:5]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:59]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:135]
+INFO: [Synth 8-6155] done synthesizing module 'mac_fsm' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/mac_fsm.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'frame_parser' [C:/VerilogRTLCourse/lab6/design/rtl/frame_parser.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'frame_parser' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/frame_parser.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'wrap_rx_mac_parser' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/wrap_rx_mac_parser.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'display_selection' [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:6]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:52]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:79]
+INFO: [Synth 8-6155] done synthesizing module 'display_selection' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/display_selection.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'top_disp' (0#1) [C:/VerilogRTLCourse/lab6/design/rtl/top_disp.sv:5]
+WARNING: [Synth 8-3917] design top_disp has port LED_TOGGLE driven by constant 1
+WARNING: [Synth 8-3917] design top_disp has port TX_LINE driven by constant 1
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1350.457 ; gain = 505.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1350.457 ; gain = 505.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1350.457 ; gain = 505.043
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1350.457 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]
+Finished Parsing XDC File [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_disp_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_disp_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1414.145 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1414.145 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Vitis/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'pst_reg' in module 'Rx'
+INFO: [Synth 8-802] inferred FSM for state register 'pst_reg' in module 'mac_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'pst_reg' in module 'display_selection'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                               00
+                  SAMPLE |                             0010 |                               01
+                    BUSY |                             0100 |                               10
+                  END_RX |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'pst_reg' using encoding 'one-hot' in module 'Rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+               STR_FRAME |                              001 |                              001
+                  LETTER |                              010 |                              010
+                    DATA |                              011 |                              011
+      COMMA_or_END_FRAME |                              100 |                              100
+               END_FRAME |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'pst_reg' using encoding 'sequential' in module 'mac_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    LEDS |                               00 |                              000
+                   RED_S |                               01 |                              001
+                 GREEN_S |                               10 |                              010
+                  BLUE_S |                               11 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'pst_reg' using encoding 'sequential' in module 'display_selection'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   18 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 15    
+	   6 Input    8 Bit       Adders := 3     
+	   2 Input    7 Bit       Adders := 5     
+	   2 Input    4 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 2     
+	               32 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
+	               10 Bit    Registers := 4     
+	                8 Bit    Registers := 6     
+	                7 Bit    Registers := 5     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 27    
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 1     
+	   2 Input   28 Bit        Muxes := 1     
+	   2 Input   18 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 16    
+	   4 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 5     
+	  17 Input    7 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 1     
+	   9 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 8     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 16    
+	   3 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 25    
+	   4 Input    2 Bit        Muxes := 7     
+	   3 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 38    
+	  10 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design top_disp has port LED_TOGGLE driven by constant 1
+WARNING: [Synth 8-3917] design top_disp has port TX_LINE driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+-------------+---------------+----------------+
+|Module Name | RTL Object  | Depth x Width | Implemented As | 
++------------+-------------+---------------+----------------+
+|pwm         | gamma_table | 256x10        | LUT            | 
+|pwm         | gamma_table | 256x10        | LUT            | 
+|pwm         | gamma_table | 256x10        | LUT            | 
+|pwm         | gamma_table | 256x10        | LUT            | 
++------------+-------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    29|
+|3     |LUT1   |     8|
+|4     |LUT2   |    91|
+|5     |LUT3   |    61|
+|6     |LUT4   |    77|
+|7     |LUT5   |    87|
+|8     |LUT6   |   394|
+|9     |MUXF7  |    37|
+|10    |MUXF8  |    18|
+|11    |FDCE   |   401|
+|12    |FDPE   |    34|
+|13    |IBUF   |     8|
+|14    |OBUF   |    32|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 1414.145 ; gain = 505.043
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 1414.145 ; gain = 568.730
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1414.145 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 84 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1414.145 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: b3384ba9
+INFO: [Common 17-83] Releasing license: Synthesis
+63 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1414.145 ; gain = 961.727
+INFO: [Common 17-1381] The checkpoint 'C:/VivadoProjects/Projects/VerilogRTLCourse/lab6/lab6.runs/synth_1/top_disp.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_disp_utilization_synth.rpt -pb top_disp_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 29 18:00:37 2025...
+[Mon Dec 29 18:00:39 2025] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:01:05 . Memory (MB): peak = 1455.672 ; gain = 0.000
+✅ Synthesis OK. Exporting Netlist...
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a100tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1455.672 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 84 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]
+Finished Parsing XDC File [C:/VerilogRTLCourse/lab6/design/XDC/Nexys-A7-100T-Master.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1455.672 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+✅ Netlist exported.
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 29 18:00:41 2025...

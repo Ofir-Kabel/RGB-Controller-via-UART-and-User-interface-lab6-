@@ -3,33 +3,27 @@
 import defs_pkg::*;
 
 module disp_reg (
-    input logic trans_type,
-    input logic [7:0] stabled_out,
-    input logic [7:0] speed_val_hex,
-    input logic [7:0] frame_col_data,
-    input logic [7:0] frame_row_data,
-    input logic [7:0] frame_pixel_data,
-    input logic [1:0] img_size,
-    input logic [7:0] trans_counter,
-    output logic [31:0] hex_disp_vec,
-    output logic [7:0] trans_led_counter
-    );
+    input clk,
+    input logic rst_n,
+    input center_btn,
+    input logic which_led,
+    input logic [7:0] digit0,
+    input logic [7:0] digit1,
+    input logic [7:0] digit2,
+    //input logic [7:0] digit3,
+    output logic [31:0] hex_disp_vec
+);
 
-logic [7:0] img_size_hex;
-logic [7:0] space; 
+logic [7:0] digit3;
+assign digit3 = which_led ? 8'h10 : 8'h01; //MSG2 : MSG1
 
-always_comb begin
-    case(img_size)
-        2'b00:  img_size_hex = 8'd01;
-        2'b01:  img_size_hex = 8'd31;
-        2'b10:  img_size_hex = 8'd127;
-        2'b11:  img_size_hex = 8'd255;
-        default: img_size_hex = 8'h00;
-    endcase 
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        hex_disp_vec <= 32'h00000000;
+    end else if(center_btn) begin
+        hex_disp_vec <= {digit3, digit2, digit1, digit0};
+    end else
+        hex_disp_vec <= hex_disp_vec;
 end
 
-
-assign trans_led_counter = trans_counter;
-assign hex_disp_vec =(!trans_type)? {trans_counter,img_size_hex,speed_val_hex,stabled_out}:{frame_row_data,frame_col_data,{8{1'b0}},frame_pixel_data};
-    
 endmodule

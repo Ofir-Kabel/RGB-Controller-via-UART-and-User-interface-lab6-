@@ -9,7 +9,8 @@ module Rx #(
     input logic rst_n,
     input logic rx_line,
     output logic [7:0] rx_vec,
-    output logic byte_done
+    output logic byte_done,
+    output logic str_frame
 );
     
 //BR16 parameters
@@ -121,21 +122,6 @@ end
 assign rx_mid_pulse = (sample_en && sample_counter == 8 && br16_pulse)? 1'b1:1'b0;
 
 //-----------------------------------------
-//BR16 PULSE TO BIT PULSE CONV
-
-// always_ff @(posedge clk or negedge rst_n)begin : BR16_CNT_BLOCK
-//     if (!rst_n) begin
-//         br16_pulse_cnt <= BR16_PULSE_CNT;
-
-//     end else if(busy_en && br16_pulse)begin
-//             if(br16_pulse_cnt == BR16_PULSE_CNT)begin
-//                 br16_pulse_cnt <= '0;
-//             end else begin
-//                 br16_pulse_cnt <= br16_pulse_cnt + 1;
-//             end
-//     end else if (nst == IDLE)
-//             br16_pulse_cnt <= BR16_PULSE_CNT;
-// end
 
 always_ff @(posedge clk or negedge rst_n)begin : BR16_CNT_BLOCK
     if (!rst_n) begin
@@ -254,5 +240,8 @@ always_ff @(posedge clk or negedge rst_n)begin
     else
         byte_done <= 0;
 end
+
+
+assign str_frame = rx_str_pulse;
 
 endmodule

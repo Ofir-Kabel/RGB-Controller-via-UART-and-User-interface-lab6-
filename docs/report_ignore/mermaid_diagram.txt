@@ -1,0 +1,13 @@
+stateDiagram
+  direction TB
+  IDLE --> STR_FRAME:str_frame = 1
+  STR_FRAME --> LETTER:Byte == '{'
+  STR_FRAME --> IDLE:Error (Not '{')
+  LETTER --> DATA:Byte == 'A'-'Z'
+  LETTER --> IDLE:Error (Not Letter)
+  DATA --> DATA:Count < 2
+  DATA --> COMMA_or_END_FRAME:Count == 2
+  COMMA_or_END_FRAME --> LETTER:Byte == ','
+  COMMA_or_END_FRAME --> END_FRAME:Byte == '}'
+  COMMA_or_END_FRAME --> IDLE:Error
+  END_FRAME --> IDLE:Next Clock

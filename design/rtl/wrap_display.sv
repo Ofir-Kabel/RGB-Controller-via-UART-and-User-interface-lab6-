@@ -6,7 +6,7 @@ module wrap_display #(
 )(
     input logic clk,
     input logic rst_n,
-    input logic trans_type,
+    //input logic trans_type,
     input logic [MAX_DIGITS_DISP*4-1:0] hex_disp_vec,
     output logic [MAX_DIGITS_DISP-1:0] AN,
     output logic [6:0] SEG7,
@@ -32,7 +32,7 @@ shift_reg #(.MAX_DIGITS_DISP(MAX_DIGITS_DISP)) shift_reg_inst (
 disp_decoder #(.MAX_DIGITS_DISP(MAX_DIGITS_DISP)) disp_decoder_inst (
     .rst_n(rst_n),
     .shift_out(shift_out),
-    .trans_type(trans_type),
+    //.trans_type(trans_type),
     .din(hex_disp_vec),
     .SEG7(SEG7),
     .dot(dot)

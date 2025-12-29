@@ -10,7 +10,10 @@ module tb_top_disp;
     logic rst_n;
 
     // Inputs
-    logic [DATA_WIDTH-1:0] SW;
+    logic BTNU;
+    logic BTND;
+    logic BTNR;       
+    logic BTNL;   
     logic BTNC;
     logic RX_LINE;
 
@@ -19,21 +22,35 @@ module tb_top_disp;
     logic [6:0] SEG7;
     logic LED_TOGGLE;
     logic DP;
-    logic TX_LINE;
     logic [7:0] LED;
+
+     logic LED16_R;
+     logic LED16_G;
+     logic LED16_B;
+     logic LED17_R;
+     logic LED17_G;
+     logic LED17_B;
 
     // DUT instantiation
     top_disp DUT (
         .clk(clk),
         .rst_n(rst_n),
-        .SW(SW),
+        .BTNU(BTNU),
+        .BTND(BTND),
+        .BTNR(BTNR),
+        .BTNL(BTNL),
         .BTNC(BTNC),
         .RX_LINE(RX_LINE),
         .AN(AN),
         .SEG7(SEG7),
         .LED_TOGGLE(LED_TOGGLE),
         .DP(DP),
-        .TX_LINE(TX_LINE),
+        .LED16_R(LED16_R),
+        .LED16_G(LED16_G),
+        .LED16_B(LED16_B),
+        .LED17_R(LED17_R),
+        .LED17_G(LED17_G),
+        .LED17_B(LED17_B),
         .LED(LED)
     );
 
@@ -51,55 +68,81 @@ module tb_top_disp;
     initial begin
         // Reset
         rst_n = 0;
-        SW = '0;
-        BTNC = 0;
+        reset_BTNS();
         RX_LINE = 1; // Idle high
-        #(5 * CLK_PER);
+        wait_cycles(5);
         rst_n = 1;
-        #(5 * CLK_PER);
-
-        // // Test TX mode: Set SW to TX (0), img_size=00, speed=00, bytes_din=0xAB
-        // SW = {1'b0, 2'b00, 2'b00, 8'hAB};
-        // #(CLK_PER);
-        // BTNC = 1; // Press button
-        // #(DEBOUNCE_CYCLE * CLK_PER); // Wait debounce
-        // BTNC = 0;
-        // #(10 * CLK_PER);
-
-        // // Monitor TX_LINE for transmitted byte (simple check)
-        // @(negedge TX_LINE); // Start bit
-        // #(BIT_TIME * 10); // Wait for one byte
-        // $display("[%0t] TX mode tested - check TX_LINE manually or add assertions.", $time);
-
-        // // Wait some time
-        // #(10000 * CLK_PER);
-
-        // Test RX mode: Set SW to RX (1), img_size=00, speed=00, bytes_din=0x00
-        SW = {1'b1, 2'b00, 2'b00, 8'h00};
-        #(CLK_PER);
-        BTNC = 1;
-        #(DEBOUNCE_CYCLE * CLK_PER);
-        BTNC = 0;
-        #(10 * CLK_PER);
-
-        // Send a valid frame to RX: {R010.C020.V030}
-        send_frame(10, 20, 30);
-
-        // Wait for processing
-        #(100 * BIT_TIME);
-
-        // Simple check: Display should update to row=0A, col=14, 00, pixel=1E (30 decimal=1E hex)
-        if (DUT.hex_disp_vec == {8'h0A, 8'h14, 8'h00, 8'h1E}) begin
-            $display("[%0t] RX display check PASSED.", $time);
-        end else begin
-            $error("[%0t] RX display check FAILED. Got: 0x%h", $time, DUT.hex_disp_vec);
-        end
-
+        press_BTNC(); // Release reset
+        wait_cycles(20);
+        send_frame(8'd10, 8'd20, 8'd255); // Send pixel data
+        wait_cycles(50);
+        press_BTNC(); // Press center button
+        wait_cycles(20);
+        send_led(8'd17); // Send LED index
+        wait_cycles(5);
+        press_BTNL(); // Press left button
+        wait_cycles(2);
+        press_BTND(); // Press left button
+        wait_cycles(20);
+        press_BTND(); // Press right button
+        wait_cycles(5);
+        send_frame(8'd30, 8'd40, 8'd128); // Send another pixel data
+        wait_cycles(10);
+        press_BTND(); // Press center button
         // Finish
-        #(100 * CLK_PER);
+        wait_cycles(100);
         $display("Simple test completed.");
         $finish;
     end
+
+    task automatic wait_cycles(input int num_cycles);
+        begin
+            repeat (num_cycles) @(posedge clk);
+        end
+    endtask
+
+    task automatic press_button(ref logic button,input string name);
+        begin
+            button = 1;
+            $display("[%0t] Pressing button %s", $time, name);
+            #(100* DEBOUNCE_CYCLE * CLK_PER); 
+            button = 0;
+        end
+    endtask
+
+        task automatic press_BTNU();
+        begin
+            press_button(BTNU, "BTNU");
+        end endtask 
+
+        task automatic press_BTND();
+        begin   
+            press_button(BTND, "BTND");
+        end endtask         
+
+        task automatic press_BTNL();
+        begin
+            press_button(BTNL, "BTNL");
+        end endtask
+
+        task automatic press_BTNR();
+        begin
+            press_button(BTNR, "BTNR");
+        end endtask
+
+        task automatic press_BTNC();
+        begin
+            press_button(BTNC , "BTNC");
+        end endtask
+
+        task automatic reset_BTNS();
+        begin
+            BTNU = 0;
+            BTND = 0;
+            BTNL = 0;
+            BTNR = 0;
+            BTNC = 0;
+        end endtask
 
     // Simple task to send a frame (valid data)
     task send_frame(
@@ -119,14 +162,14 @@ module tb_top_disp;
                 send_byte(row_str.getc(0));
                 row_str = row_str.substr(1, row_str.len()-1);
             end
-            send_byte(8'h2E); // .
-            send_byte(8'h43); // C
+            send_byte(8'h2C); // ,
+            send_byte(8'h47); // G
             repeat(3) begin
                 send_byte(col_str.getc(0));
                 col_str = col_str.substr(1, col_str.len()-1);
             end
-            send_byte(8'h2E); // .
-            send_byte(8'h56); // V
+            send_byte(8'h2C); // ,
+            send_byte(8'h42); // B
             repeat(3) begin
                 send_byte(pixel_str.getc(0));
                 pixel_str = pixel_str.substr(1, pixel_str.len()-1);
@@ -134,6 +177,24 @@ module tb_top_disp;
             send_byte(8'h7D); // }
         end
     endtask
+
+        // Simple task to send a frame (valid data)
+    task send_led(
+        input logic [7:0] indx
+    );
+        string led_str;
+        begin
+            $sformat(led_str, "%03d", indx);
+            send_byte(8'h7B); // {
+            send_byte(8'h4C); // L
+            repeat(3) begin
+                send_byte(led_str.getc(0));
+                led_str = led_str.substr(1, led_str.len()-1);
+            end
+            send_byte(8'h7D); // }
+        end
+    endtask
+
 
     // Send single byte
     task send_byte(input logic [7:0] data);

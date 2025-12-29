@@ -2,7 +2,7 @@
 
 module disp_decoder #(parameter MAX_DIGITS_DISP = 8)(
     input logic rst_n,
-    input logic trans_type,
+    //input logic trans_type,
     input logic [7:0] shift_out,
     input logic [MAX_DIGITS_DISP*4-1:0] din,
     output logic [6:0] SEG7,
@@ -17,7 +17,7 @@ always_comb begin
         disp_dig = 4'b0000;
         dot = 1'b1; 
     end else begin
-        case(shift_out)
+        unique case(shift_out)
             8'b11111110: begin
                 disp_dig = din[3:0];    // '0'
                 dot = 1'b1;
@@ -36,7 +36,7 @@ always_comb begin
             end
             8'b11101111: begin
                 disp_dig = din[19:16];  // '4'
-                dot = 1'b1;
+                dot = 1'b0;
             end
             8'b11011111: begin
                 disp_dig = din[23:20];  // '5'
@@ -44,7 +44,7 @@ always_comb begin
             end
             8'b10111111: begin
                 disp_dig = din[27:24];  // '6'
-                dot = 1'b1;
+                dot = 1'b0;
             end
             8'b01111111: begin
                 disp_dig = din[31:28];  // '7'
@@ -58,16 +58,16 @@ always_comb begin
     end
 end
 
-//creating -- 8DIGIT: RX ROW,COL,--,PIXEL
-assign space = ((shift_out ==  8'b11111011 || shift_out ==  8'b11110111) && trans_type);
+// //creating -- 8DIGIT: RX ROW,COL,--,PIXEL
+// assign space = ((shift_out ==  8'b11111011 || shift_out ==  8'b11110111) && trans_type);
 
 always_comb begin
     if(!rst_n)
         SEG7 = 7'b1111111;
-    else if(space)
-        SEG7 = 7'b1111110;
+    // else if(space)
+    //     SEG7 = 7'b1111110;
     else
-        case(disp_dig)
+        unique case(disp_dig)
             4'h0: SEG7 = 7'b0000001; // '0'
             4'h1: SEG7 = 7'b1001111; // '1'
             4'h2: SEG7 = 7'b0010010; // '2'

@@ -1,0 +1,98 @@
+Module,Register,Planned_RTL,Actual_Synthesis,Status
+BTNS_DEBAUNCER_GENERATE_BLOCK[0].load_reg,debounce_counter,7,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[0].load_reg,pulse_en,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[0].load_reg,stabled_out,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[0].load_reg,temp,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[1].load_reg,debounce_counter,7,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[1].load_reg,pulse_en,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[1].load_reg,stabled_out,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[1].load_reg,temp,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[2].load_reg,debounce_counter,7,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[2].load_reg,pulse_en,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[2].load_reg,stabled_out,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[2].load_reg,temp,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[3].load_reg,debounce_counter,7,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[3].load_reg,pulse_en,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[3].load_reg,stabled_out,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[3].load_reg,temp,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[4].load_reg,debounce_counter,7,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[4].load_reg,pulse_en,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[4].load_reg,stabled_out,1,0,Optimized Out
+BTNS_DEBAUNCER_GENERATE_BLOCK[4].load_reg,temp,1,0,Optimized Out
+LED_PWM_GENERATE_BLOCK[0].pwm,pwm_counter,10,0,Optimized Out
+LED_PWM_GENERATE_BLOCK[0].pwm,pwm_out,1,0,Optimized Out
+LED_PWM_GENERATE_BLOCK[1].pwm,pwm_counter,10,0,Optimized Out
+LED_PWM_GENERATE_BLOCK[1].pwm,pwm_out,1,0,Optimized Out
+LED_PWM_GENERATE_BLOCK[2].pwm,pwm_counter,10,0,Optimized Out
+LED_PWM_GENERATE_BLOCK[2].pwm,pwm_out,1,0,Optimized Out
+Rx,bit_counter,0,4,Inferred / Generated
+Rx,br16_acc,0,20,Inferred / Generated
+Rx,br16_pulse,0,1,Inferred / Generated
+Rx,br16_pulse_cnt,0,4,Inferred / Generated
+Rx,busy_en,0,1,Inferred / Generated
+Rx,byte_done,0,1,Inferred / Generated
+Rx,pst,0,4,Inferred / Generated
+Rx,rx_data,0,1,Inferred / Generated
+Rx,rx_str_pulse,0,1,Inferred / Generated
+Rx,rx_vec,0,8,Inferred / Generated
+Rx,sample,0,3,Inferred / Generated
+Rx,sample_counter,0,4,Inferred / Generated
+Rx,sample_en,0,1,Inferred / Generated
+Rx,stage,0,1,Inferred / Generated
+Rx,temp_rx_vec,0,8,Inferred / Generated
+clk_div,clk_en,1,1,Match
+clk_div,counter,18,18,Match
+disp_reg,hex_disp_vec,32,26,Partial Opt
+display_selection,blue,8,8,Match
+display_selection,green,8,8,Match
+display_selection,led_sel,8,4,Partial Opt
+display_selection,pst,3,2,Partial Opt
+display_selection,red,8,8,Match
+load_reg,debounce_counter,0,7,Inferred / Generated
+load_reg,pulse_en,0,1,Inferred / Generated
+load_reg,stabled_out,0,1,Inferred / Generated
+load_reg,temp,0,1,Inferred / Generated
+load_reg_0,debounce_counter,0,7,Inferred / Generated
+load_reg_0,pulse_en,0,1,Inferred / Generated
+load_reg_0,stabled_out,0,1,Inferred / Generated
+load_reg_0,temp,0,1,Inferred / Generated
+load_reg_1,debounce_counter,0,7,Inferred / Generated
+load_reg_1,pulse_en,0,1,Inferred / Generated
+load_reg_1,stabled_out,0,1,Inferred / Generated
+load_reg_1,temp,0,1,Inferred / Generated
+load_reg_2,debounce_counter,0,7,Inferred / Generated
+load_reg_2,pulse_en,0,1,Inferred / Generated
+load_reg_2,stabled_out,0,1,Inferred / Generated
+load_reg_2,temp,0,1,Inferred / Generated
+load_reg_3,debounce_counter,0,7,Inferred / Generated
+load_reg_3,pulse_en,0,1,Inferred / Generated
+load_reg_3,stabled_out,0,1,Inferred / Generated
+load_reg_3,temp,0,1,Inferred / Generated
+mac_fsm,byte_data_count,2,2,Match
+mac_fsm,frame_data,128,90,Partial Opt
+mac_fsm,frame_done,1,0,Optimized Out
+mac_fsm,pst,3,3,Match
+mac_fsm,temp_frame,128,112,Partial Opt
+pwm,pwm_counter,0,10,Inferred / Generated
+pwm,pwm_out,0,1,Inferred / Generated
+pwm_4,pwm_counter,0,10,Inferred / Generated
+pwm_4,pwm_out,0,1,Inferred / Generated
+pwm_5,pwm_counter,0,10,Inferred / Generated
+pwm_5,pwm_out,0,1,Inferred / Generated
+rx,bit_counter,4,0,Optimized Out
+rx,br16_acc,28,0,Optimized Out
+rx,br16_pulse,1,0,Optimized Out
+rx,br16_pulse_cnt,4,0,Optimized Out
+rx,busy_en,1,0,Optimized Out
+rx,byte_done,1,0,Optimized Out
+rx,pst,2,0,Optimized Out
+rx,rx_data,1,0,Optimized Out
+rx,rx_str_pulse,1,0,Optimized Out
+rx,rx_vec,8,0,Optimized Out
+rx,sample,3,0,Optimized Out
+rx,sample_counter,4,0,Optimized Out
+rx,sample_en,1,0,Optimized Out
+rx,stage,1,0,Optimized Out
+rx,temp_rx_vec,10,0,Optimized Out
+shift_reg,temp_out,8,8,Match
+,=== TOTAL ===,509,435,
