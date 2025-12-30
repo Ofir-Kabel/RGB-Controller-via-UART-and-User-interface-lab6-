@@ -4,7 +4,7 @@ package defs_pkg;
 
     //--load reg
     localparam DATA_WIDTH = 13;      
-    localparam DEBOUNCE_CYCLE = 100; //1sec  100_000_000
+    localparam DEBOUNCE_CYCLE = 5_000_000; //1sec  100_000_000
     //--disp wrap
     localparam MAX_DIGITS_DISP = 8;  
     localparam CLK_OUT_FREQ = 2000;
@@ -18,6 +18,7 @@ package defs_pkg;
 
     //--pwm
     localparam PWM_MAX = 1024;  // Fixed: Match 10-bit gamma (0-1023)
+    localparam PWM_LEN = 12;   // Fixed: 12-bit PWM output (0-4095)
 
     // Inlined gamma_table
     const logic [9:0] gamma_table [0:255] = '{

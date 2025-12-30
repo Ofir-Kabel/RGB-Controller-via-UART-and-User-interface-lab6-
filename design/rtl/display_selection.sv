@@ -8,12 +8,14 @@ module display_selection (
     input logic rst_n,
     input logic center_btn,
     input logic up_btn,
-    down_btn,
-    right_btn,
-    left_btn,
+    input logic down_btn,
+    input logic right_btn,
+    input logic left_btn,
+    input logic which_led,
     input logic [7:0] red_val,
     input logic [7:0] green_val,
     input logic [7:0] blue_val,
+    output logic rgb_sel,
     output logic [7:0] led_sel,
     output logic [7:0] red,
     output logic [7:0] green,
@@ -51,20 +53,20 @@ module display_selection (
   always_comb begin : NST_BLOCK
     unique case (pst)
       LEDS: begin
-        nst = (left_btn == 1'b1) ? RED_S : LEDS;
+        nst = (right_btn == 1'b1) ? RED_S : LEDS;
       end
       RED_S: begin
-        if (left_btn == 1'b1) nst = GREEN_S;
-        else if (right_btn == 1'b1) nst = LEDS;
+        if (right_btn == 1'b1) nst = GREEN_S;
+        else if (left_btn == 1'b1) nst = LEDS;
         else nst = RED_S;
       end
       GREEN_S: begin
-        if (left_btn == 1'b1) nst = BLUE_S;
-        else if (right_btn == 1'b1) nst = RED_S;
+        if (right_btn == 1'b1) nst = BLUE_S;
+        else if (left_btn == 1'b1) nst = RED_S;
         else nst = GREEN_S;
       end
       BLUE_S: begin
-        nst = (right_btn == 1'b1) ? GREEN_S : BLUE_S;
+        nst = (left_btn == 1'b1) ? GREEN_S : BLUE_S;
       end
       default: nst = LEDS;
     endcase
@@ -91,15 +93,20 @@ module display_selection (
   //COLOR VALUE ADJUSTMENT
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
-      red   <= 8'd0;
+      red <= 8'd0;
       green <= 8'd0;
-      blue  <= 8'd0;
+      blue <= 8'd0;
+      rgb_sel <= 1'b0;
     end else if (center_btn) begin
-      red   <= red_val;
+      rgb_sel <= which_led;
+      red <= red_val;
       green <= green_val;
-      blue  <= blue_val;
+      blue <= blue_val;
     end else begin
       case (nst)
+        LEDS: begin
+          rgb_sel <= (up_btn || down_btn) ? ~rgb_sel : rgb_sel;
+        end
         RED_S: begin
           if (up_btn) red <= (red < 8'd255) ? red + 1 : 8'd255;
           else if (down_btn) red <= (red > 8'd0) ? red - 1 : 8'd0;
@@ -116,9 +123,10 @@ module display_selection (
           else blue <= blue;
         end
         default: begin
-          red   <= red;
+          red <= red;
           green <= green;
-          blue  <= blue;
+          blue <= blue;
+          rgb_sel <= rgb_sel;
         end
       endcase
     end

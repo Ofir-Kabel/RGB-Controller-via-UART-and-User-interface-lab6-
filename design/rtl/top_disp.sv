@@ -41,8 +41,10 @@ module top_disp (
   logic which_led;
 
   //--pwm
-  logic [7:0] color_vec_pwm[0:2];  //0-red,1-green,2-blue
+  logic [9:0] color_scaling_vec[0:2];  //0-red,1-green,2-blue
+  logic [PWM_LEN-1:0] color_pwm_vec[0:2];  //0-red,1-green,2-blue
   logic RGB[0:2];
+  logic rgb_sel;
 
 
   //--disp_reg
@@ -71,11 +73,10 @@ module top_disp (
   disp_reg disp_reg_inst (
       .clk(clk),
       .rst_n(rst_n),
-      .center_btn(stabled_out[0]),
-      .which_led(which_led),
-      .digit0(red),
+      .rgb_sel(rgb_sel),
+      .digit0(blue),
       .digit1(green),
-      .digit2(blue),
+      .digit2(red),
       .hex_disp_vec(hex_disp_vec)
   );
   wrap_display #(
@@ -118,45 +119,53 @@ module top_disp (
       .led_sel(LED),
       .red(red),
       .green(green),
-      .blue(blue)
+      .blue(blue),
+            .which_led(which_led),
+      .rgb_sel(rgb_sel)
+
   );
 
   genvar y;
 
-  generate
+generate
     for (y = 0; y < 2; y = y + 1) begin : GREEN_BLUE_SCALING_GENERATE_BLOCK
       scaling_factor scaling_factor_inst (
         .clk(clk),
         .rst_n(rst_n),
-        .blue_nor_green(y),
-        .scale_factor_in((y==1)? blue : green),
-        .scale_factor_out((y==1)? color_vec_pwm[2] : color_vec_pwm[1])
+        .blue_nor_green(y), 
+        .scale_factor_in(color_scaling_vec[y+1]), // Input is 10-bit
+        .scale_factor_out(color_pwm_vec[y+1])     // Output is 12-bit
       );
     end
   endgenerate
 
-  genvar j;
-
-    assign color_vec_pwm[0] = red;
+   genvar j;
 
   generate
     for (j = 0; j < 3; j = j + 1) begin : LED_PWM_GENERATE_BLOCK
       pwm pwm_inst (
           .clk(clk),
           .rst_n(rst_n),
-          .duty_cycle(color_vec_pwm[j]),
+          .duty_cycle(color_pwm_vec[j]),
           .pwm_out(RGB[j])
       );
     end
   endgenerate
 
+ 
+    assign color_scaling_vec[0] = gamma_table[red];
+    assign color_scaling_vec[1] = gamma_table[green];
+    assign color_scaling_vec[2] = gamma_table[blue];
 
-  assign LED16_R = (which_led == 0) ? RGB[0] : 1'b0;
-  assign LED16_G = (which_led == 0) ? RGB[1] : 1'b0;
-  assign LED16_B = (which_led == 0) ? RGB[2] : 1'b0;
-  assign LED17_R = (which_led == 1) ? RGB[0] : 1'b0;
-  assign LED17_G = (which_led == 1) ? RGB[1] : 1'b0;
-  assign LED17_B = (which_led == 1) ? RGB[2] : 1'b0;
+    assign color_pwm_vec[0] = {2'b00, color_scaling_vec[0]};
+
+
+  assign LED16_R = (rgb_sel == 0) ? RGB[0] : 1'b0;
+  assign LED16_G = (rgb_sel == 0) ? RGB[1] : 1'b0;
+  assign LED16_B = (rgb_sel == 0) ? RGB[2] : 1'b0;
+  assign LED17_R = (rgb_sel == 1) ? RGB[0] : 1'b0;
+  assign LED17_G = (rgb_sel == 1) ? RGB[1] : 1'b0;
+  assign LED17_B = (rgb_sel == 1) ? RGB[2] : 1'b0;
 
   assign LED_TOGGLE = 1'b1;
   assign TX_LINE = 1'b1;
