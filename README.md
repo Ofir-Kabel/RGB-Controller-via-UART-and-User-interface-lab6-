@@ -71,4 +71,4 @@ The display shows the current configuration in Hex format:
     * USB-UART Interface.
 
 ## 📐 System Block Diagram
-![Block Diagram](lab6_diagram.png)
+![System Block Diagram](lab6_diagram.png)
